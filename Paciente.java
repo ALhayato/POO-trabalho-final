@@ -3,6 +3,9 @@ class pacient extends Pessoa{
   private String telefoneResponsavel;
   private String[] historicoClinico;
 
+  public Paciente(String responsavelLegal, String telefoneResponsavel){
+    super.Pessoa
+  }
   public void adicionarEvolucao(String texto, Funcionario autor){
     
   }
