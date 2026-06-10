@@ -1,0 +1,39 @@
+class Funcionario extends Pessoa{
+    private String matricula;
+    private String cargo;
+    
+    public Funcionario(String cargo, String matricula, int id, String nome, String cpf, String senha) {
+        super(id, nome, cpf, senha);
+        this.cargo = cargo;
+        this.matricula = matricula;
+    }
+    
+    @Override
+    public boolean autenticar(String senha){
+        return this.getSenha().equals(senha);
+    }
+
+    @Override
+    public void exibirDados(){
+        System.out.println("Dados do Funcionário");
+        System.out.println("Nome: " + getNome());
+        System.out.println("Matrícula: " + getMatricula());
+        System.out.println("Cargo: " + getCargo());
+    }
+    
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+}
