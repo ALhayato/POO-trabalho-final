@@ -3,12 +3,14 @@ abstract class Pessoa implements Autenticavel{
     private int id;
     private String nome;
     private String cpf;
+    private int idade;
     private String senha;
     
-    public Pessoa(int id, String nome, String cpf, String senha) {
+    public Pessoa(int id, String nome, String cpf, int idade, String senha) {
         this.cpf = cpf;
         this.id = id;
         this.nome = nome;
+        this. idade = idade;
         this.senha = senha;
     }
 
@@ -44,5 +46,13 @@ abstract class Pessoa implements Autenticavel{
         this.senha = senha;
     }
 
+    public void setIdade(int idade){
+        this.idade = idade;
+    }
+
+    public int getIdade(){
+        return idade;
+    }
+    
     public abstract void exibirDados();
 } 
