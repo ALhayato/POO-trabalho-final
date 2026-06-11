@@ -5,8 +5,10 @@ class pacient extends Pessoa{
 
   public Paciente(String responsavelLegal, String telefoneResponsavel){
     super.Pessoa(int id, String nome, String cpf, String senha);
-    this.responsavel = responsavel;
-    this.telefoneResponsavel = telefoneResponsavel;
+    if(super.getIdade() < 18){
+      this.responsavel = responsavel;
+      this.telefoneResponsavel = telefoneResponsavel;
+    }
   }
   public void adicionarEvolucao(String texto, Funcionario autor){
     
