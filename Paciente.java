@@ -7,14 +7,15 @@ class pacient extends Pessoa{
     super(id, nome, cpf, senha, idade);
     this.historicoClinico = new ArrayList<String>();
     if(this.getIdade() < 18){
-      if(this.responsavelLegal == null || responsavelLegal.trim().isEmpty() || this.telefoneresponsavel == null || telefoneResponsavel.trim().isEmpty()){
-        throw new IllegalArgumentException("menores de 18 anos devem ter um responsavel legal e o telefone do responsavel.");
+      throw new IllegalArgumentException("menores de 18 anos devem ter um responsavel legal e o telefone do responsavel.");
+      }else{
+        this.responsavelLegal = null;
+        this.telefoneResponsavel = null;
       }
       this.responsavelLegal = responsavelLegal;
       this.telefoneResponsavel = telefoneResponsavel;
     }
-    
-  }
+  
   public void adicionarEvolucao(String texto, Funcionario autor){
     
   }
