@@ -14,4 +14,9 @@ class Psicologo extends Funcionario{
   public void evoluirProntuario(Paciente p, String anotacao){
     
   }
+
+  @Override
+  public void exibirDados(){
+    
+  }
 }
