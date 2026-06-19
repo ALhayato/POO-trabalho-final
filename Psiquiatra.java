@@ -11,4 +11,9 @@ class Psiquiatra extends Funcionario{
     System.out.println("%s", anotacao);
     
   }
+
+  @Override
+  public void exibirDados(){
+    
+  }
 }
