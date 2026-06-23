@@ -7,11 +7,18 @@ class Psicologo extends Funcionario{
     this.especialidade = especialidade;
   }
 
+  public void setEspecialidade(String especialidade){
+    this.especialidade = especialidade;
+  }
+  
+  public String getEspecialidade(){
+    return especialidade;
+  }
+
   public boolean fazerVideochamada(Paciente p){
     boolean conectado = false;
-    String telC = p.getTelefoneResponsavel();
-    String tel = p.getTelefone();
-    if(telC.equals(p.getTelefoneResponsavel()) || tel.equals(p.getTelefone())){
+    String tel = p.getTelefoneResponsavel();
+    if(tel.equals(p.getTelefoneResponsavel())){
       conectado = true;
     }
     System.out.println("ligacao conectada");
@@ -25,6 +32,10 @@ class Psicologo extends Funcionario{
 
   @Override
   public void exibirDados(){
-    
+    System.out.println("Dados do Psicólogo");
+        System.out.println("Nome: " + getNome());
+        System.out.println("Matrícula: " + getMatricula());
+        System.out.println("Cargo: " + getCargo());
+        System.out.println("Especialidade : " + getEspecialidade());
   }
 }
