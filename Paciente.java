@@ -1,4 +1,4 @@
-class pacient extends Pessoa{
+class Paciente extends Pessoa{
   private String responsavelLegal;
   private String telefoneResponsavel;
   private List<String> historicoClinico;

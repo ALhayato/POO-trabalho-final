@@ -5,6 +5,6 @@ class Aviso{
   private String dataExpiracao;
 
   public boolean estaValido(){
-    
+    return true; //falta implementar
   }
 }

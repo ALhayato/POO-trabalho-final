@@ -2,20 +2,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 class GerenciadorSistema{
-
-
-  private list<Pessoa> usuarios = new Arraylist<>();
-  private list<Aviso> muralAvisos = new Arraylist<>();
+  private List<Pessoa> usuarios = new ArrayList<>();
+  private List<Aviso> muralAvisos = new ArrayList<>();
 
   public void cadastrarUsuario(Pessoa p){
     
   }
 
   public Pessoa fazerLogin(String cpf, String senha){
-    
+    return;
   }
 
   public List<Aviso>listarAvisosAtivos(){
-    
+    return;
   }
 }
