@@ -8,7 +8,8 @@ class Psiquiatra extends Funcionario{
   }
 
   public void evoluirProntuario(Paciente p, String anotacao){
-    System.out.println("%s", anotacao);
+    String laudo = anotacao;
+    p.adicionarEvolucao(laudo, this);
     
   }
 
