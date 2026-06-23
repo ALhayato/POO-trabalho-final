@@ -9,7 +9,13 @@ class Psicologo extends Funcionario{
 
   public boolean fazerVideochamada(Paciente p){
     boolean conectado = false;
-    if()
+    String telC = p.getTelefoneResponsavel();
+    String tel = p.getTelefone();
+    if(telC.equals(p.getTelefoneResponsavel()) || tel.equals(p.getTelefone())){
+      conectado = true;
+    }
+    System.out.println("ligacao conectada");
+    return conectado;
   }
 
   public void evoluirProntuario(Paciente p, String anotacao){
