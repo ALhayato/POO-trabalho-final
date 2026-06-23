@@ -52,4 +52,20 @@ class Paciente extends Pessoa{
   public boolean autenticar(String senha){
     return this.getSenha().equals(senha);
   }
+
+    public String getResponsavelLegal() {
+        return responsavelLegal;
+    }
+
+    public void setResponsavelLegal(String responsavelLegal) {
+        this.responsavelLegal = responsavelLegal;
+    }
+
+    public String getTelefoneResponsavel() {
+        return telefoneResponsavel;
+    }
+
+    public void setTelefoneResponsavel(String telefoneResponsavel) {
+        this.telefoneResponsavel = telefoneResponsavel;
+    }
 }
