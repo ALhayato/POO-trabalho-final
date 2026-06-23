@@ -6,12 +6,12 @@ class GerenciadorSistema{
   private List<Aviso> muralAvisos = new ArrayList<>();
 
   public void cadastrarUsuario(Pessoa p){
-    if(p == null){
+    if(p == null){ //verifica se o objeto é nulo
       throw new IllegalArgumentException("Não é possivel cadastrar um usuário nulo");
     }
 
     for(Pessoa u : usuarios){
-      if(u.getCpf().equals(p.getCpf())){
+      if(u.getCpf().equals(p.getCpf())){ //verifica se o cpf já existe
         throw new IllegalArgumentException("Já existe um usuário cadastrado com esse CPF");
       }
     }
@@ -25,6 +25,13 @@ class GerenciadorSistema{
   }
 
   public List<Aviso> listarAvisosAtivos(){
-    return;
+    List<Aviso> ativos = new ArrayList<>();
+
+    for(Aviso aviso : muralAvisos){ //adiciona a lista ativos apenas os avisos que ainda estão válidos
+      if(aviso.estaValido()){
+        ativos.add(aviso);
+      }
+    }
+    return ativos;
   }
 }
