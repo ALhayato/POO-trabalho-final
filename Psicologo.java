@@ -8,7 +8,8 @@ class Psicologo extends Funcionario{
   }
 
   public boolean fazerVideochamada(Paciente p){
-    
+    boolean conectado = false;
+    if()
   }
 
   public void evoluirProntuario(Paciente p, String anotacao){
