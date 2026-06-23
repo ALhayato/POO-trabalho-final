@@ -20,7 +20,7 @@ class Paciente extends Pessoa{
       this.telefoneResponsavel = telefoneResponsavel;
     } else {
       this.responsavelLegal = "Não se aplica";
-      this.telefoneResponsavel = "Não se aplica";
+      this.telefoneResponsavel = telefoneResponsavel;
     }
   }
   
