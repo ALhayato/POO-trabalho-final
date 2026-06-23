@@ -4,6 +4,7 @@ import java.util.List;
 class Paciente extends Pessoa{
   private String responsavelLegal;
   private String telefoneResponsavel;
+  private String telefoneMaior;
   private List<String> historicoClinico;
 
   public Paciente(int id, String nome, String cpf, int idade, String senha, String responsavelLegal, String telefoneResponsavel){
