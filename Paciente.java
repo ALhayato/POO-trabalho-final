@@ -53,19 +53,27 @@ class Paciente extends Pessoa{
     return this.getSenha().equals(senha);
   }
 
-    public String getResponsavelLegal() {
-        return responsavelLegal;
-    }
+  public String getResponsavelLegal() {
+      return responsavelLegal;
+  }
 
-    public void setResponsavelLegal(String responsavelLegal) {
-        this.responsavelLegal = responsavelLegal;
-    }
+  public void setResponsavelLegal(String responsavelLegal) {
+      this.responsavelLegal = responsavelLegal;
+  }
 
-    public String getTelefoneResponsavel() {
-        return telefoneResponsavel;
-    }
+  public String getTelefoneResponsavel() {
+      return telefoneResponsavel;
+  }
 
-    public void setTelefoneResponsavel(String telefoneResponsavel) {
-        this.telefoneResponsavel = telefoneResponsavel;
-    }
+  public void setTelefoneResponsavel(String telefoneResponsavel) {
+      this.telefoneResponsavel = telefoneResponsavel;
+  }
+
+  public String getTelefoneMaior() {
+      return telefoneMaior;
+  }
+
+  public void setTelefoneMaior(String telefoneMaior) {
+      this.telefoneMaior = telefoneMaior;
+  }
 }
