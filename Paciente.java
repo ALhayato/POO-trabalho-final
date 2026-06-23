@@ -19,7 +19,7 @@ class pacient extends Pessoa{
   public void adicionarEvolucao(String texto, Funcionario autor){
     
   }
-  public String[] getHistoricoClinico(){
+  public list<String> getHistoricoClinico(){
     
   }
   @Override
