@@ -12,7 +12,8 @@ class Psicologo extends Funcionario{
   }
 
   public void evoluirProntuario(Paciente p, String anotacao){
-    
+    String laudo = anotacao;
+    p.adicionarEvolucao(laudo, this);
   }
 
   @Override
