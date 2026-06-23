@@ -5,11 +5,11 @@ class Paciente extends Pessoa{
   private String responsavelLegal;
   private String telefoneResponsavel;
   private String telefoneMaior;
-  private List<String> historicoClinico;
+  private final List<String> historicoClinico;
 
   public Paciente(int id, String nome, String cpf, int idade, String senha, String responsavelLegal, String telefoneResponsavel){
     super(id, nome, cpf, idade, senha);
-    this.historicoClinico = new ArrayList<String>();
+    this.historicoClinico = new ArrayList<>();
 
     if(this.getIdade() < 18 && responsavelLegal == null){
       throw new IllegalArgumentException("menores de 18 anos devem ter um responsavel legal e o telefone do responsavel.");
