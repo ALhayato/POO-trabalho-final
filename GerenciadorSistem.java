@@ -21,7 +21,17 @@ class GerenciadorSistema{
   }
 
   public Pessoa fazerLogin(String cpf, String senha){
-    return;
+    if(cpf == null || senha == null){
+      return null;
+    }
+
+    for(Pessoa p : usuarios){
+      if(p.getCpf().equals(cpf)/* && falta fazer a parte de autenticar senha*/){
+        System.out.println("Login realizado com sucesso");
+        return p;
+      }
+    }
+    throw new IllegalArgumentException("CPF ou senha incorretos");
   }
 
   public List<Aviso> listarAvisosAtivos(){
