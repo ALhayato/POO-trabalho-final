@@ -18,7 +18,7 @@ class Psicologo extends Funcionario{
   public boolean fazerVideochamada(Paciente p) throws NullPointerException{
     boolean conectado = false;
     String tel = p.getTelefoneResponsavel();
-    if(tel != ){
+    if(tel != null){
       conectado = true;
     }
     System.out.println("ligacao conectada");
