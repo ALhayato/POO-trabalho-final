@@ -2,16 +2,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-private Scanner sc = new Scanner(System.in);
-
 public class Main{
+    static private Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         int opcao = 0;
         do{
             menu();
             try{
                 opcao = Integer.parseInt(sc.nextLine());
-                escolherOpcao(int opcao);
+                escolherOpcao(opcao);
                }catch(NumberFormatException e){
                     System.out.println("Erro: escolha uma opção valida");
                 }
@@ -32,7 +31,6 @@ public class Main{
     }
 
     private static void escolherOpcao(int opcao){
-            
            switch(opcao){
             case 1:
                 cadastrarUsuario(Pessoa p);
@@ -57,7 +55,9 @@ public class Main{
             case 6:
                 sair();
                 break;
-            }
-        }
 
+            default:
+                System.out.println("Opção inválida!");
+        }
+    }
 }
