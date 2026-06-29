@@ -15,7 +15,7 @@ class Psicologo extends Funcionario{
     return especialidade;
   }
 
-  public boolean fazerVideochamada(Paciente p) throws NullPointerException{
+  public boolean fazerVideochamada(Paciente p){
     boolean conectado = false;
     String tel = p.getTelefoneResponsavel();
     if(tel != null){
