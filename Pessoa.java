@@ -14,13 +14,9 @@ abstract class Pessoa implements Autenticavel{
         this.senha = senha;
     }
 
+    @Override
     public boolean autenticar(String senha){
-        boolean aprovado = false;
-        String pw = senha
-        if(senha == pw.matches("abc\\d+")){
-            aprovado = true;
-        }
-        return aprovado;
+        return senha != null && senha.matches("abc\\d+");
     }
 
     public int getId() {
