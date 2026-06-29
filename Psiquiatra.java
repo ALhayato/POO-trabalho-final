@@ -11,9 +11,20 @@ class Psiquiatra extends Funcionario{
     p.adicionarEvolucao(anotacao, this);
   }
 
+  public void setRegistroConselho(String registroConselho){
+    this.registroConselho = registroConselho;
+  }
+
+  public String getRegistroConselho(){
+    return registroConselho;
+  }
+
   @Override
   public void exibirDados(){
-    
-    
+    System.out.println("Dados do Psiquiatra");
+        System.out.println("Nome: " + getNome());
+        System.out.println("Matrícula: " + getMatricula());
+        System.out.println("Cargo: " + getCargo());
+        System.out.println("Registro de Conselho : " + getRegistroConselho());
   }
 }
