@@ -8,13 +8,12 @@ class Psiquiatra extends Funcionario{
   }
 
   public void evoluirProntuario(Paciente p, String anotacao){
-    String laudo = anotacao;
-    p.adicionarEvolucao(laudo, this);
-    
+    p.adicionarEvolucao(anotacao, this);
   }
 
   @Override
   public void exibirDados(){
+    
     
   }
 }
