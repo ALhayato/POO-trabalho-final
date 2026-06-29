@@ -60,4 +60,17 @@ public class Main{
                 System.out.println("Opção inválida!");
         }
     }
+
+    public void cadastrarUsuario(Pessoa p){
+        System.out.println("Dados pessoais");
+        System.out.println("Insira seu nome");
+        System.out.println("Nome: " + p.getNome());
+        System.out.println("Idade: " + p.getIdade());
+        System.out.println("Insira seu cpf");
+        System.out.println("cpf de usuário: " + p.getCpf());
+        System.out.println("Insira sua senha");
+        System.out.println("senha: " + p.getSenha());
+        System.out.println("Insira sua idade");
+        System.out.println("Pronto! cadastro concluído");
+    }
 }
