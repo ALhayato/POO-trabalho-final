@@ -15,10 +15,10 @@ class Psicologo extends Funcionario{
     return especialidade;
   }
 
-  public boolean fazerVideochamada(Paciente p){
+  public boolean fazerVideochamada(Paciente p) throws NullPointerException{
     boolean conectado = false;
     String tel = p.getTelefoneResponsavel();
-    if(tel.equals(p.getTelefoneResponsavel())){
+    if(tel != ){
       conectado = true;
     }
     System.out.println("ligacao conectada");
@@ -26,8 +26,7 @@ class Psicologo extends Funcionario{
   }
 
   public void evoluirProntuario(Paciente p, String anotacao){
-    String laudo = anotacao;
-    p.adicionarEvolucao(laudo, this);
+    p.adicionarEvolucao(anotacao, this);
   }
 
   @Override
