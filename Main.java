@@ -63,7 +63,7 @@ public class Main{
     }
 
     public void cadastrarUsuario(Pessoa p){
-        Scannersc = new.Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         
         System.out.println("Dados pessoais");
         System.out.println("Insira seu nome");
@@ -114,7 +114,12 @@ public class Main{
 
     public void verificarProntuario(Paciente p){
         List<Paciente>pacientes = new ArrayList<>();
-        System.out.println("Escolher um paciente");
+        Scanner n = new Scanner(System.in);
+        for(int i = 0; i < pacientes.lenght()){
+            System.out.println("Escolher um paciente");
+            int i = n.nextInt()
+        }
+        
             
         }
 }
