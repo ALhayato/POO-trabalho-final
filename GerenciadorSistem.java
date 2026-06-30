@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 class GerenciadorSistema{
-  private List<Pessoa> usuarios = new ArrayList<>();
-  private List<Aviso> muralAvisos = new ArrayList<>();
+  private final List<Pessoa> usuarios = new ArrayList<>();
+  private final List<Aviso> muralAvisos = new ArrayList<>();
 
   public void cadastrarUsuario(Pessoa p){
     if(p == null){ //verifica se o objeto é nulo
@@ -43,5 +43,9 @@ class GerenciadorSistema{
       }
     }
     return ativos;
+  }
+  
+  public void adicionarAviso(Aviso a){
+    muralAvisos.add(a);
   }
 }
