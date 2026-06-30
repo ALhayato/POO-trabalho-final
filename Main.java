@@ -130,10 +130,21 @@ public class Main{
     }
 
     public void verificarProntuario(Paciente p){
-        for(int i = 0; i < pacientes.size()){
+        for(int i = 0; i < pacientes.size(); i++){
             System.out.println("Escolher um paciente");
-            int i = sc.nextInt();
-            p.getHistoricoClinico();
+            System.out.println("[" + i + "]" + pacientes.get(i).getNome(););
+        }
+        int i = sc.nextInt();
+        sc.nextLine();
+        if(i > 0 && i < pacientes.size()){
+            Paciente e = pacientes.get(i);
+            System.out.println("Nome :" e.getNome());
+            System.out.println("historico :" e.getHistoricoClinico());
+
+            String novoLaudo = sc.nextLine();
+            
+            
+            
         }
         
             
