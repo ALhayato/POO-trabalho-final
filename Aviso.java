@@ -1,18 +1,26 @@
 class Aviso{
-  private int id;
+  private static int contadorId = 0;
+
+  private int id = contadorId;
   private String titulo;
   private String conteudo;
   private String dataExpiracao;
   
-    public Aviso(String conteudo, String dataExpiracao, int id, String titulo) {
-        this.conteudo = conteudo;
-        this.dataExpiracao = dataExpiracao;
-        this.id = id;
-        this.titulo = titulo;
+    public Aviso(String conteudo, String dataExpiracao, String titulo) {
+      contadorId++;
+
+      this.id = contadorId;
+      this.conteudo = conteudo;
+      this.dataExpiracao = dataExpiracao;
+      this.titulo = titulo;
     }
     
   public boolean estaValido(){
     return true; //falta implementar
+  }
+
+  public int getProximoId(){
+    return contadorId + 1;
   }
 
   public int getId() {
