@@ -63,15 +63,21 @@ public class Main{
     }
 
     public void cadastrarUsuario(Pessoa p){
+        Scannersc = new.Scanner(System.in);
+        
         System.out.println("Dados pessoais");
         System.out.println("Insira seu nome");
-        System.out.println("Nome: " + p.getNome());
-        System.out.println("Idade: " + p.getIdade());
-        System.out.println("Insira seu cpf");
-        System.out.println("cpf de usuário: " + p.getCpf());
-        System.out.println("Insira sua senha");
-        System.out.println("senha: " + p.getSenha());
+        String nome = sc.nextLine();
         System.out.println("Insira sua idade");
+        sc.nextLine();
+        Int idade = sc.nextInt();
+        System.out.println("Insira seu cpf");
+        String cpf = sc.nextLine();
+        System.out.println("Insira sua senha");
+        String senha = sc.nextLine();
+        p.autenticar(senha);
+
+        
         System.out.println("Pronto! cadastro concluído");
     }
 
