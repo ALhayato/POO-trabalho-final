@@ -76,7 +76,13 @@ public class Main{
         System.out.println("Insira sua senha");
         String senha = sc.nextLine();
         p.autenticar(senha);
-
+        if(p instaceof Psicologo){
+            System.out.println("Insira sua especialidade");
+            String especialidade = sc.nextLine();
+        }else if(p instaceof Psiquiatra){
+            System.out.println("Insira seu registro de conselho");
+            String registro = sc.nextLine();
+        }
         
         System.out.println("Pronto! cadastro concluído");
     }
