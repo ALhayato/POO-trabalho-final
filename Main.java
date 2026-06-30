@@ -70,16 +70,16 @@ public class Main{
         String nome = sc.nextLine();
         System.out.println("Insira sua idade");
         sc.nextLine();
-        Int idade = sc.nextInt();
+        int idade = sc.nextInt();
         System.out.println("Insira seu cpf");
         String cpf = sc.nextLine();
         System.out.println("Insira sua senha");
         String senha = sc.nextLine();
         p.autenticar(senha);
-        if(p instaceof Psicologo){
+        if(p instanceof Psicologo){
             System.out.println("Insira sua especialidade");
             String especialidade = sc.nextLine();
-        }else if(p instaceof Psiquiatra){
+        }else if(p instanceof Psiquiatra){
             System.out.println("Insira seu registro de conselho");
             String registro = sc.nextLine();
         }
