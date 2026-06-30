@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main{
     static private Scanner sc = new Scanner(System.in);
+    GerenciadorSistema sistema = new GerenciadorSistema();
     public static void main(String[] args) {
         int opcao = 0;
         do{
@@ -72,5 +73,17 @@ public class Main{
         System.out.println("senha: " + p.getSenha());
         System.out.println("Insira sua idade");
         System.out.println("Pronto! cadastro concluído");
+    }
+
+    public void checarAvisos(){
+        List<Aviso> ativos = sistema.listarAvisosAtivos();
+        if(ativos.isEmpty()){
+            System.out.println("Sem avisos!");
+            return;
+        }
+        System.out.println("-----Mural de avisos-----");
+        for (Aviso aviso : ativos) {
+            System.out.println("[" + aviso.getId() + "] " + aviso.getTitulo() + ": " + aviso.getConteudo());
+        }
     }
 }
