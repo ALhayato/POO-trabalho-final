@@ -64,24 +64,41 @@ public class Main{
 
     public void cadastrarUsuario(Pessoa p){
         Scanner sc = new Scanner(System.in);
+        List<Paciente>pacientes = newArrayList<>();
         
         System.out.println("Dados pessoais");
         System.out.println("Insira seu nome");
         String nome = sc.nextLine();
+        p.setNome(nome);
         System.out.println("Insira sua idade");
-        sc.nextLine();
         int idade = sc.nextInt();
+        p.setIdade(idade);
+        sc.nextLine();
         System.out.println("Insira seu cpf");
         String cpf = sc.nextLine();
+        p.setCpf(cpf);
         System.out.println("Insira sua senha");
         String senha = sc.nextLine();
         p.autenticar(senha);
+        p.setSenha(senha);
         if(p instanceof Psicologo){
             System.out.println("Insira sua especialidade");
             String especialidade = sc.nextLine();
-        }else if(p instanceof Psiquiatra){
+            p.setEspecialidade(especialidade);
+        }if(p instanceof Psiquiatra){
             System.out.println("Insira seu registro de conselho");
             String registro = sc.nextLine();
+            p.setRegistroConselho(registro);
+        }if(p instanceof Paciente){
+            if(p.getIdade() < 18){
+                System.out.println("Insira o nome do seu responsavel");
+                String responsavel = sc.nextLine();
+                p.setResponsavelLegal(responsavel);
+            }
+            System.out.println("Insira seu telefone");
+            String telefone = sc.nextLine();
+            p.setTelefone()
+            pacientes.add(paciente);
         }
         
         System.out.println("Pronto! cadastro concluído");
@@ -113,11 +130,9 @@ public class Main{
     }
 
     public void verificarProntuario(Paciente p){
-        List<Paciente>pacientes = new ArrayList<>();
-        Scanner n = new Scanner(System.in);
         for(int i = 0; i < pacientes.lenght()){
             System.out.println("Escolher um paciente");
-            int i = n.nextInt()
+            int i = sc.nextInt();
         }
         
             
