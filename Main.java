@@ -129,24 +129,20 @@ public class Main{
         sistema.adicionarAviso(novo);
     }
 
-    public void verificarProntuario(Paciente p){
+    public void verificarProntuario(Paciente e, Clinico m){
         for(int i = 0; i < pacientes.size(); i++){
             System.out.println("Escolher um paciente");
-            System.out.println("[" + i + "]" + pacientes.get(i).getNome(););
+            System.out.println("[" + i + "]" + pacientes.get(i).getNome());
         }
         int i = sc.nextInt();
         sc.nextLine();
+        
         if(i > 0 && i < pacientes.size()){
             Paciente e = pacientes.get(i);
-            System.out.println("Nome :" e.getNome());
-            System.out.println("historico :" e.getHistoricoClinico());
-
+            System.out.println("Nome :" + e.getNome());
+            System.out.println("historico :" + e.getHistoricoClinico());
             String novoLaudo = sc.nextLine();
-            
-            
-            
+            m.evoluirProntuario(p, novoLaudo);
         }
-        
-            
-        }
+    }
 }
