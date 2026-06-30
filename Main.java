@@ -111,4 +111,10 @@ public class Main{
 
         sistema.adicionarAviso(novo);
     }
+
+    public void verificarProntuario(Paciente p){
+        
+        System.out.println("Escolher um paciente");
+            
+        }
 }
