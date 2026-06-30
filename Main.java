@@ -66,24 +66,6 @@ public class Main{
         Scanner sc = new Scanner(System.in);
         List<Paciente>pacientes = newArrayList<>();
         
-         if(p instanceof Psicologo){
-            System.out.println("Insira sua especialidade");
-            String especialidade = sc.nextLine();
-            p.setEspecialidade(especialidade);
-        }if(p instanceof Psiquiatra){
-            System.out.println("Insira seu registro de conselho");
-            String registro = sc.nextLine();
-            p.setRegistroConselho(registro);
-        }if(p instanceof Paciente){
-            if(p.getIdade() < 18){
-                System.out.println("Insira o nome do seu responsavel");
-                String responsavel = sc.nextLine();
-                p.setResponsavelLegal(responsavel);
-            }
-            System.out.println("Insira seu telefone");
-            String telefone = sc.nextLine();
-            p.setTelefone(telefone);
-            pacientes.add(paciente);
         System.out.println("Dados pessoais");
         System.out.println("Insira seu nome");
         String nome = sc.nextLine();
