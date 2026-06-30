@@ -113,7 +113,7 @@ public class Main{
     }
 
     public void verificarProntuario(Paciente p){
-        
+        List<Paciente>pacientes = new ArrayList<>;
         System.out.println("Escolher um paciente");
             
         }
