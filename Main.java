@@ -97,7 +97,7 @@ public class Main{
             }
             System.out.println("Insira seu telefone");
             String telefone = sc.nextLine();
-            p.setTelefone()
+            p.setTelefone(telefone);
             pacientes.add(paciente);
         }
         
@@ -130,9 +130,10 @@ public class Main{
     }
 
     public void verificarProntuario(Paciente p){
-        for(int i = 0; i < pacientes.lenght()){
+        for(int i = 0; i < pacientes.size()){
             System.out.println("Escolher um paciente");
             int i = sc.nextInt();
+            p.getHistoricoClinico();
         }
         
             
