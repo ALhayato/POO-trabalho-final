@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main{
     static private Scanner sc = new Scanner(System.in);
-    GerenciadorSistema sistema = new GerenciadorSistema();
+    static private GerenciadorSistema sistema = new GerenciadorSistema();
     public static void main(String[] args) {
         int opcao = 0;
         do{
@@ -46,7 +46,7 @@ public class Main{
                 break;
 
             case 4:
-                editarAvisos();
+                criarAvisos();
                 break;
 
             case 5:
@@ -75,7 +75,7 @@ public class Main{
         System.out.println("Pronto! cadastro concluído");
     }
 
-    public void checarAvisos(){
+    public static void checarAvisos(){
         List<Aviso> ativos = sistema.listarAvisosAtivos();
         if(ativos.isEmpty()){
             System.out.println("Sem avisos!");
@@ -85,5 +85,18 @@ public class Main{
         for (Aviso aviso : ativos) {
             System.out.println("[" + aviso.getId() + "] " + aviso.getTitulo() + ": " + aviso.getConteudo());
         }
+    }
+
+    public static void criarAvisos(){
+        System.out.print("Título do aviso: ");
+        String titulo = sc.nextLine();
+        System.out.println("Conteúdo: ");
+        String conteudo = sc.nextLine();
+        System.out.println("Data de expiração");
+        String data = sc.nextLine();
+
+        Aviso novo = new Aviso(conteudo, data, 0, titulo);
+
+        sistema.adicionarAviso(novo);
     }
 }
