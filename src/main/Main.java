@@ -215,11 +215,14 @@ public class Main{
     //     }
     // }
 
-    public void conferirSuaFicha(Paciente p){
+    public static void conferirSuaFicha(Paciente p, Funcionario f){
         System.out.println("Selecione de qual medico voce quer o historico");
-        String cargo = (Funcionario.getCargo()) ? "Psicologo" : "Psiquiatra";
-        return p.getHistoricoClinico(cargo);
+        if(f.getCargo().equals("psicologo") || (f.getCargo().equals("psiquiatra"))){
+            System.out.println(p.getHistoricoClinico(f));
+        }
+        
     }
+
 
     public static void sair(){
         System.out.println("Fechando o sistema!");
