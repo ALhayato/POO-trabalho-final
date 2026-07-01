@@ -176,7 +176,7 @@ public class Main{
         int i = sc.nextInt();
         sc.nextLine();
         
-        if(i > 0 && i < pacientes.size()){
+        if(i >= 0 && i < pacientes.size()){
             e = pacientes.get(i);
             System.out.println("Nome :" + e.getNome());
             System.out.println("historico :" + e.getHistoricoClinico());
