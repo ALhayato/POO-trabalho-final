@@ -163,4 +163,9 @@ public class Main{
             m.evoluirProntuario(p, novoLaudo);
         }
     }
+    public void conferirSuaFicha(Paciente p){
+        System.out.println("Selecione de qual medico voce quer o historico");
+        String cargo = (Funcionario.getCargo()) ? "Psicologo" : "Psiquiatra";
+        return p.getHistoricoClinico(cargo);
+    }
 }
