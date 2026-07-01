@@ -63,61 +63,61 @@ public class Main{
     }
 
     public void cadastrarUsuario(Pessoa p){
-        Scanner sc = new Scanner(System.in);
-        List<Paciente>pacientes = newArrayList<>();
+        List<Paciente> pacientes = new ArrayList<>();
+        System.out.println("Quem você quer cadastrar?");
+        System.out.println("1. Psicólogo");
+        System.out.println("2. Psiquiatra");
+        System.out.println("3. Paciente");
         
-         if(p instanceof Psicologo){
-            System.out.println("Insira sua especialidade");
-            String especialidade = sc.nextLine();
-            p.setEspecialidade(especialidade);
-        }if(p instanceof Psiquiatra){
-            System.out.println("Insira seu registro de conselho");
-            String registro = sc.nextLine();
-            p.setRegistroConselho(registro);
-        }if(p instanceof Paciente){
-            if(p.getIdade() < 18){
-                System.out.println("Insira o nome do seu responsavel");
-                String responsavel = sc.nextLine();
-                p.setResponsavelLegal(responsavel);
+        int opcao;
+        do { 
+            opcao = Integer.parseInt(sc.next());
+
+            if(opcao < 1 || opcao > 3){
+                System.out.println("Por favor, escolha uma opção válida");
             }
-            System.out.println("Insira seu telefone");
-            String telefone = sc.nextLine();
-            p.setTelefone(telefone);
-            pacientes.add(paciente);
-        System.out.println("Dados pessoais");
+        } while (opcao < 1 || opcao > 3);
+
+        
+        System.out.println("\n\nDados pessoais");
         System.out.println("Insira seu nome");
         String nome = sc.nextLine();
         p.setNome(nome);
+        
         System.out.println("Insira sua idade");
         int idade = sc.nextInt();
         p.setIdade(idade);
         sc.nextLine();
+        
         System.out.println("Insira seu cpf");
         String cpf = sc.nextLine();
         p.setCpf(cpf);
+        
         System.out.println("Insira sua senha");
         String senha = sc.nextLine();
         p.autenticar(senha);
         p.setSenha(senha);
-        if(p instanceof Psicologo){
-            System.out.println("Insira sua especialidade");
-            String especialidade = sc.nextLine();
-            p.setEspecialidade(especialidade);
-        }if(p instanceof Psiquiatra){
-            System.out.println("Insira seu registro de conselho");
-            String registro = sc.nextLine();
-            p.setRegistroConselho(registro);
-        }if(p instanceof Paciente){
-            if(p.getIdade() < 18){
-                System.out.println("Insira o nome do seu responsavel");
-                String responsavel = sc.nextLine();
-                p.setResponsavelLegal(responsavel);
-            }
-            System.out.println("Insira seu telefone");
-            String telefone = sc.nextLine();
-            p.setTelefone(telefone);
-            pacientes.add(paciente);
-        }
+
+        
+        // if(p instanceof Psicologo){
+        //     System.out.println("Insira sua especialidade");
+        //     String especialidade = sc.nextLine();
+        //     p.setEspecialidade(especialidade);
+        // }if(p instanceof Psiquiatra){
+        //     System.out.println("Insira seu registro de conselho");
+        //     String registro = sc.nextLine();
+        //     p.setRegistroConselho(registro);
+        // }if(p instanceof Paciente){
+        //     if(p.getIdade() < 18){
+        //         System.out.println("Insira o nome do seu responsavel");
+        //         String responsavel = sc.nextLine();
+        //         p.setResponsavelLegal(responsavel);
+        //     }
+        //     System.out.println("Insira seu telefone");
+        //     String telefone = sc.nextLine();
+        //     p.setTelefone(telefone);
+        //     pacientes.add(paciente);
+        // }
         
         System.out.println("Pronto! cadastro concluído");
     }
@@ -142,7 +142,7 @@ public class Main{
         System.out.println("Data de expiração");
         String data = sc.nextLine();
 
-        Aviso novo = new Aviso(conteudo, data, 0, titulo);
+        Aviso novo = new Aviso(conteudo, data, titulo);
 
         sistema.adicionarAviso(novo);
     }
