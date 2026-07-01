@@ -1,3 +1,5 @@
+package model
+
 class Psicologo extends Funcionario{
   
   private String especialidade;
