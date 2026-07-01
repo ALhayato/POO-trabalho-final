@@ -1,6 +1,7 @@
 package main;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 import model.*;
 import view.*;
@@ -47,7 +48,7 @@ public class Main{
                 break;
 
             case 3:
-                verificarProntuario(Paciente e, Clinico m);
+                verificarProntuario(e, m);
                 break;
 
             case 4:
@@ -55,7 +56,7 @@ public class Main{
                 break;
 
             case 5:
-                conferirSuaFicha(Paciente p);
+                conferirSuaFicha(p);
                 break;
 
             case 6:
@@ -176,11 +177,11 @@ public class Main{
         sc.nextLine();
         
         if(i > 0 && i < pacientes.size()){
-            Paciente e = pacientes.get(i);
+            e = pacientes.get(i);
             System.out.println("Nome :" + e.getNome());
             System.out.println("historico :" + e.getHistoricoClinico());
             String novoLaudo = sc.nextLine();
-            m.evoluirProntuario(p, novoLaudo);
+            m.evoluirProntuario(e, novoLaudo);
         }
     }
     public void conferirSuaFicha(Paciente p){
@@ -189,7 +190,7 @@ public class Main{
         return p.getHistoricoClinico(cargo);
     }
 
-    public void sair(){
+    public static void sair(){
         System.out.println("Fechando o sistema!");
     }
 }
