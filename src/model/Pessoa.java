@@ -1,3 +1,5 @@
+package model;
+
 abstract class Pessoa implements Autenticavel{
     private static int contadorId = 0;
 
