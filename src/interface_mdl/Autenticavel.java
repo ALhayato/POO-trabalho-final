@@ -1,4 +1,4 @@
-package interface_mdl;
+package interfacemdl;
 
 interface Autenticavel {
    public boolean autenticar(String senha);
