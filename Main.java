@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main{
+    
     static private Scanner sc = new Scanner(System.in);
     static private GerenciadorSistema sistema = new GerenciadorSistema();
     public static void main(String[] args) {
@@ -64,19 +65,6 @@ public class Main{
 
     public void cadastrarUsuario(Pessoa p){
         List<Paciente> pacientes = new ArrayList<>();
-        System.out.println("Quem você quer cadastrar?");
-        System.out.println("1. Psicólogo");
-        System.out.println("2. Psiquiatra");
-        System.out.println("3. Paciente");
-        
-        int opcao;
-        do { 
-            opcao = Integer.parseInt(sc.next());
-
-            if(opcao < 1 || opcao > 3){
-                System.out.println("Por favor, escolha uma opção válida");
-            }
-        } while (opcao < 1 || opcao > 3);
 
         
         System.out.println("\n\nDados pessoais");
@@ -97,6 +85,7 @@ public class Main{
         String senha = sc.nextLine();
         p.autenticar(senha);
         p.setSenha(senha);
+        
 
         
         // if(p instanceof Psicologo){

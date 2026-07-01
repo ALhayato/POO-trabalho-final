@@ -1,4 +1,5 @@
 abstract class Pessoa implements Autenticavel{
+    private static int contadorId = 0;
 
     private int id;
     private String nome;
@@ -6,20 +7,26 @@ abstract class Pessoa implements Autenticavel{
     private int idade;
     private String senha;
     
-    public Pessoa(int id, String nome, String cpf, int idade, String senha) {
+    public Pessoa(String nome, String cpf, int idade, String senha) {   
+        contadorId++;
+
         this.cpf = cpf;
-        this.id = id;
+        this.id = contadorId;
         this.nome = nome;
         this. idade = idade;
         this.senha = senha;
     }
 
     @Override
-    public boolean autenticar(String senha){
-        return senha != null && senha.matches("abc\\d+");
+    public boolean autenticar(String senhaDigitada){
+        return this.senha != null && this.senha.equals(senhaDigitada);
     }
 
-    public int getId() {
+    public static int getProximoId(){
+        return contadorId + 1;
+    }
+
+    public int getId(){
         return id;
     }
 
