@@ -1,4 +1,4 @@
-package interface_mdl;
+package interfacemdl;
 
 interface VideoChamada{
   public boolean fazerVideoChamada();
