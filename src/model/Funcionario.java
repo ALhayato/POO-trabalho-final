@@ -1,3 +1,5 @@
+package model;
+
 class Funcionario extends Pessoa{
     private String matricula;
     private String cargo;
