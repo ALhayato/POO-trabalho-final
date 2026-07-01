@@ -63,6 +63,26 @@ public class Main{
         }
     }
 
+    public void cadastrar(int opcao){
+        if(opcao < 3){
+            switch(opcao){
+                case 1:
+                    cadastrarFuncionario(Funcionario f);
+                    break;
+
+                case 2:
+                    cadastrarMedico(Funcionario f);
+                    break;
+
+                case 3:
+                    cadastrarPaciente;
+                    break;
+            }
+        }else{
+            System.out.println("Erro: Opcao incorreta");
+            }
+    }
+
     public void cadastrarUsuario(Pessoa p){
         List<Paciente> pacientes = new ArrayList<>();
 
