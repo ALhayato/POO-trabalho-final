@@ -1,6 +1,8 @@
 package model;
+import interfacemdl.Clinico;
 
-class Psiquiatra extends Funcionario{
+
+public class Psiquiatra extends Funcionario implements Clinico{
 
   private String registroConselho;
 

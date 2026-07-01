@@ -1,6 +1,8 @@
 package model;
+import interfacemdl.Clinico;
+import interfacemdl.VideoChamada;
 
-class Psicologo extends Funcionario{
+public class Psicologo extends Funcionario implements Clinico, VideoChamada{
   
   private String especialidade;
 
@@ -17,7 +19,7 @@ class Psicologo extends Funcionario{
     return especialidade;
   }
 
-  public boolean fazerVideochamada(Paciente p){
+  public boolean fazerVideoChamada(Paciente p){
     boolean conectado = false;
     String tel = p.getTelefoneResponsavel();
     if(tel != null){

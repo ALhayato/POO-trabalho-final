@@ -1,5 +1,6 @@
 package interfacemdl;
+import model.Paciente;
 
-interface VideoChamada{
-  public boolean fazerVideoChamada();
+public interface VideoChamada{
+  public boolean fazerVideoChamada(Paciente p);
 }

@@ -1,5 +1,5 @@
 package interfacemdl;
 
-interface Autenticavel {
+public interface Autenticavel {
    public boolean autenticar(String senha);
 }  

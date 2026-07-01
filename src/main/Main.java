@@ -2,11 +2,14 @@ package main;
 
 import java.util.List;
 import java.util.Scanner;
+import model.*;
+import view.*;
+import interfacemdl.*;
 
 public class Main{
 
     static private final Scanner sc = new Scanner(System.in);
-    static private final GerenciadorSistema sistema = new GerenciadorSistema();
+    static private final GerenciadorSistem sistema = new GerenciadorSistem();
     public static void main(String[] args) {
         int opcao = 0;
         do{
@@ -44,7 +47,7 @@ public class Main{
                 break;
 
             case 3:
-                verificarProntuario();
+                verificarProntuario(Paciente e, Clinico m);
                 break;
 
             case 4:
@@ -52,7 +55,7 @@ public class Main{
                 break;
 
             case 5:
-                conferirSuaFicha();
+                conferirSuaFicha(Paciente p);
                 break;
 
             case 6:
@@ -184,5 +187,9 @@ public class Main{
         System.out.println("Selecione de qual medico voce quer o historico");
         String cargo = (Funcionario.getCargo()) ? "Psicologo" : "Psiquiatra";
         return p.getHistoricoClinico(cargo);
+    }
+
+    public void sair(){
+        System.out.println("Fechando o sistema!");
     }
 }
