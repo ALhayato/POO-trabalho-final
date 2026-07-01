@@ -51,4 +51,8 @@ public class GerenciadorSistem{
   public void adicionarAviso(Aviso a){
     muralAvisos.add(a);
   }
+
+  public List<Pessoa> getUsuarios(){
+    return usuarios;
+  }
 }
