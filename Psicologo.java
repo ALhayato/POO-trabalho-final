@@ -2,8 +2,8 @@ class Psicologo extends Funcionario{
   
   private String especialidade;
 
-  public Psicologo(String especialidade, String cargo, String matricula, int id, String nome, String cpf, int idade, String senha){
-    super(cargo, matricula, id, nome, cpf, idade, senha);
+  public Psicologo(String nome, String cpf, int idade, String senha, String matricula, String cargo, String especialidade){
+    super(nome, cpf, idade, senha, matricula, cargo);
     this.especialidade = especialidade;
   }
 

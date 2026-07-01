@@ -2,8 +2,8 @@ class Funcionario extends Pessoa{
     private String matricula;
     private String cargo;
     
-    public Funcionario(String cargo, String matricula, int id, String nome, String cpf, int idade, String senha) {
-        super(id, nome, cpf, idade, senha);
+    public Funcionario(String nome, String cpf, int idade, String senha, String matricula, String cargo) {
+        super(nome, cpf, idade, senha);
         this.cargo = cargo;
         this.matricula = matricula;
     }

@@ -7,8 +7,8 @@ class Paciente extends Pessoa{
   private String telefoneMaior;
   private final List<String> historicoClinico;
 
-  public Paciente(int id, String nome, String cpf, int idade, String senha, String responsavelLegal, String telefoneResponsavel){
-    super(id, nome, cpf, idade, senha);
+  public Paciente(String nome, String cpf, int idade, String senha, String responsavelLegal, String telefoneResponsavel){
+    super(nome, cpf, idade, senha);
     this.historicoClinico = new ArrayList<>();
 
     if(this.getIdade() < 18 && responsavelLegal == null){

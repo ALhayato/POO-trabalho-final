@@ -2,8 +2,8 @@ class Psiquiatra extends Funcionario{
 
   private String registroConselho;
 
-  public Psiquiatra(String registroConselho, String cargo, String matricula, int id, String nome, String cpf, int idade, String senha){
-    super(cargo, matricula, id, nome, cpf, idade, senha);
+  public Psiquiatra(String nome, String cpf, int idade, String senha, String matricula, String cargo, String registroConselho){
+    super(nome, cpf, idade, senha, matricula, cargo);
     this.registroConselho = registroConselho;
   }
 
