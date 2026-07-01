@@ -3,9 +3,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main{
-    
-    static private Scanner sc = new Scanner(System.in);
-    static private GerenciadorSistema sistema = new GerenciadorSistema();
+
+    static private final Scanner sc = new Scanner(System.in);
+    static private final GerenciadorSistema sistema = new GerenciadorSistema();
     public static void main(String[] args) {
         int opcao = 0;
         do{
@@ -35,7 +35,7 @@ public class Main{
     private static void escolherOpcao(int opcao){
            switch(opcao){
             case 1:
-                cadastrarUsuario(Pessoa p);
+                cadastrarUsuario();
                 break;
 
             case 2:
@@ -43,7 +43,7 @@ public class Main{
                 break;
 
             case 3:
-                verificarProntuario(Paciente p);
+                verificarProntuario();
                 break;
 
             case 4:
@@ -63,72 +63,77 @@ public class Main{
         }
     }
 
-    public void cadastrar(int opcao){
-        if(opcao < 3){
-            switch(opcao){
-                case 1:
-                    cadastrarFuncionario(Funcionario f);
-                    break;
-
-                case 2:
-                    cadastrarMedico(Funcionario f);
-                    break;
-
-                case 3:
-                    cadastrarPaciente;
-                    break;
-            }
-        }else{
-            System.out.println("Erro: Opcao incorreta");
-            }
-    }
-
-    public void cadastrarUsuario(Pessoa p){
-        List<Paciente> pacientes = new ArrayList<>();
-
-        
+    public static void cadastrarUsuario(){
         System.out.println("\n\nDados pessoais");
+        System.out.println("Insira o tipo de perfil");
+        System.out.println("1. Paciente");
+        System.out.println("2. Psicólogo");
+        System.out.println("3. Psiquiatra");
+        int tipo = Integer.parseInt(sc.nextLine());
+
         System.out.println("Insira seu nome");
         String nome = sc.nextLine();
-        p.setNome(nome);
         
         System.out.println("Insira sua idade");
         int idade = sc.nextInt();
-        p.setIdade(idade);
-        sc.nextLine();
         
         System.out.println("Insira seu cpf");
         String cpf = sc.nextLine();
-        p.setCpf(cpf);
         
         System.out.println("Insira sua senha");
         String senha = sc.nextLine();
-        p.autenticar(senha);
-        p.setSenha(senha);
-        
 
-        
-        // if(p instanceof Psicologo){
-        //     System.out.println("Insira sua especialidade");
-        //     String especialidade = sc.nextLine();
-        //     p.setEspecialidade(especialidade);
-        // }if(p instanceof Psiquiatra){
-        //     System.out.println("Insira seu registro de conselho");
-        //     String registro = sc.nextLine();
-        //     p.setRegistroConselho(registro);
-        // }if(p instanceof Paciente){
-        //     if(p.getIdade() < 18){
-        //         System.out.println("Insira o nome do seu responsavel");
-        //         String responsavel = sc.nextLine();
-        //         p.setResponsavelLegal(responsavel);
-        //     }
-        //     System.out.println("Insira seu telefone");
-        //     String telefone = sc.nextLine();
-        //     p.setTelefone(telefone);
-        //     pacientes.add(paciente);
-        // }
-        
-        System.out.println("Pronto! cadastro concluído");
+        try {
+            switch (tipo) {
+                case 1:
+                    String responsavel = "Nao se aplica";
+                    String telefoneresp;
+
+                    if(idade < 18){
+                        System.out.print("Insira o nome do Resposável: ");
+                        responsavel = sc.nextLine();
+                    }   
+                    
+                    System.out.print("\nInsira o telefone do responsável: ");
+                    telefoneresp = sc.nextLine();
+
+                    Pessoa paciente= new Paciente(nome, cpf, idade, senha, responsavel, telefoneresp);
+                    sistema.cadastrarUsuario(paciente);
+                    break;
+                case 2:
+                    {
+                        System.out.println("Insira sua matricula");
+                        String matricula = sc.nextLine();
+
+                        System.out.println("Insira sua especialidade");
+                        String especialidade = sc.nextLine();
+
+                        Funcionario psicologo = new Psicologo(nome, cpf, idade, senha, matricula, "Psicólogo", especialidade);
+                        sistema.cadastrarUsuario(psicologo);
+                        break;
+                    }
+                case 3:
+                    {
+                        System.out.println("Insira sua matricula");
+                        String matricula = sc.nextLine();
+
+                        System.out.println("Insira seu CRM");
+                        String registroConselho = sc.nextLine();
+
+                        Funcionario psiquiatra = new Psiquiatra(nome, cpf, idade, senha, matricula, "Psiquiatra", registroConselho);
+                        sistema.cadastrarUsuario(psiquiatra);
+                        break;
+                    }
+                default:
+                    System.out.println("Tipo inválido");
+                    break;
+            }
+
+            System.out.println("Pronto, cadastro concluído");
+
+        } catch (Exception e) {
+            System.out.println("Erro ao cadastrar" + e.getMessage());
+        }
     }
 
     public static void checarAvisos(){
