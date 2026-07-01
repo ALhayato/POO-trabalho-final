@@ -23,7 +23,6 @@ public class Main{
                 }
         }while (opcao != 6);
     }
-
         
     public static void menu(){
         System.out.println("-----Bem vindo ao CapSistema-----");
@@ -48,7 +47,7 @@ public class Main{
                 break;
 
             case 3:
-                verificarProntuario(e, m);
+                verificarProntuario();
                 break;
 
             case 4:
@@ -56,7 +55,7 @@ public class Main{
                 break;
 
             case 5:
-                conferirSuaFicha(p);
+                conferirSuaFicha();
                 break;
 
             case 6:
@@ -164,26 +163,58 @@ public class Main{
         String data = sc.nextLine();
 
         Aviso novo = new Aviso(conteudo, data, titulo);
-
         sistema.adicionarAviso(novo);
+        System.out.println("Aviso criado com sucesso!");
     }
 
-    public void verificarProntuario(Paciente e, Clinico m){
+    public void verificarProntuario(){
+        List<Paciente> pacientes = new ArrayList<>();
+        //adiciona os pacientes a lista pacientes
+        for(Pessoa p : sistema.getUsuarios()){
+            if(p instanceof Paciente){
+                pacientes.add((Paciente)p);
+            }
+        }
+
+        //verifica se a lista esta vazia
+        if(pacientes.isEmpty()){
+            System.out.println("Nenhuma paciente cadastrado!");
+            return;
+        }
+
+        //se nao estiver, exibe o nome e o indice equivalente
+        System.out.println("Escolha um Paciente");
         for(int i = 0; i < pacientes.size(); i++){
-            System.out.println("Escolher um paciente");
             System.out.println("[" + i + "]" + pacientes.get(i).getNome());
         }
-        int i = sc.nextInt();
-        sc.nextLine();
-        
-        if(i > 0 && i < pacientes.size()){
-            e = pacientes.get(i);
-            System.out.println("Nome :" + e.getNome());
-            System.out.println("historico :" + e.getHistoricoClinico());
-            String novoLaudo = sc.nextLine();
-            m.evoluirProntuario(e, novoLaudo);
+        //pede para digitar o numero do paciente desejado
+        System.out.println("Digite o numero do paciente");
+        int n = Integer.parseInt(sc.nextLine());
+
+        if(n >= 0 && n < pacientes.size()){
+            Paciente pa = pacientes.get(n);
+            System.out.println("Nome:" + pa.getNome());
         }
+
+        /*falta implementar a parte de adicionar uma evolucao*/
     }
+    // public void verificarProntuario(Paciente e, Clinico m){
+    //     for(int i = 0; i < pacientes.size(); i++){
+    //         System.out.println("Escolher um paciente");
+    //         System.out.println("[" + i + "]" + pacientes.get(i).getNome());
+    //     }
+    //     int i = sc.nextInt();
+    //     sc.nextLine();
+        
+    //     if(i > 0 && i < pacientes.size()){
+    //         e = pacientes.get(i);
+    //         System.out.println("Nome :" + e.getNome());
+    //         System.out.println("historico :" + e.getHistoricoClinico());
+    //         String novoLaudo = sc.nextLine();
+    //         m.evoluirProntuario(e, novoLaudo);
+    //     }
+    // }
+
     public void conferirSuaFicha(Paciente p){
         System.out.println("Selecione de qual medico voce quer o historico");
         String cargo = (Funcionario.getCargo()) ? "Psicologo" : "Psiquiatra";
