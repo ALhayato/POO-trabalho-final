@@ -1,6 +1,5 @@
 package model;
-import interfacemdl.Clinico;
-import interfacemdl.VideoChamada;
+import interfacemdl.*;
 
 public class Psicologo extends Funcionario implements Clinico, VideoChamada{
   
@@ -19,6 +18,7 @@ public class Psicologo extends Funcionario implements Clinico, VideoChamada{
     return especialidade;
   }
 
+  @Override
   public boolean fazerVideoChamada(Paciente p){
     boolean conectado = false;
     String tel = p.getTelefoneResponsavel();
@@ -29,6 +29,7 @@ public class Psicologo extends Funcionario implements Clinico, VideoChamada{
     return conectado;
   }
 
+  @Override
   public void evoluirProntuario(Paciente p, String anotacao){
     p.adicionarEvolucao(anotacao, this);
   }

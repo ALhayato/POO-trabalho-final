@@ -1,5 +1,7 @@
 package interfacemdl;
 
-interface Clinico{
+import model.*;
+
+public interface Clinico{
   public void evoluirProntuario(Paciente p, String anotacao);
 }

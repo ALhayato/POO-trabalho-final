@@ -2,8 +2,9 @@ package view;
 
 import java.util.ArrayList;
 import java.util.List;
+import model.*;
 
-class GerenciadorSistema{
+public class GerenciadorSistem{
   private final List<Pessoa> usuarios = new ArrayList<>();
   private final List<Aviso> muralAvisos = new ArrayList<>();
 

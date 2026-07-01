@@ -1,6 +1,6 @@
 package view;
 
-class Aviso{
+public class Aviso{
   private static int contadorId = 0;
 
   private int id = contadorId;

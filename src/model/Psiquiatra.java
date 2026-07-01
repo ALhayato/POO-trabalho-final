@@ -11,6 +11,7 @@ public class Psiquiatra extends Funcionario implements Clinico{
     this.registroConselho = registroConselho;
   }
 
+  @Override
   public void evoluirProntuario(Paciente p, String anotacao){
     p.adicionarEvolucao(anotacao, this);
   }

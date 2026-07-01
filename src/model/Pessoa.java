@@ -1,6 +1,8 @@
 package model;
 
-abstract class Pessoa implements Autenticavel{
+import interfacemdl.*;
+
+public abstract class Pessoa implements Autenticavel{
     private static int contadorId = 0;
 
     private int id;

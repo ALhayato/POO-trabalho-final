@@ -13,11 +13,11 @@ public class Paciente extends Pessoa{
     super(nome, cpf, idade, senha);
     this.historicoClinico = new ArrayList<>();
 
-    if(this.getIdade() < 18 && responsavelLegal == null){
+    if(idade < 18 && responsavelLegal == null){
       throw new IllegalArgumentException("menores de 18 anos devem ter um responsavel legal e o telefone do responsavel.");
     }
 
-    if(this.getIdade() < 18){
+    if(idade < 18){
       this.responsavelLegal = responsavelLegal;
       this.telefoneResponsavel = telefoneResponsavel;
     } else {
