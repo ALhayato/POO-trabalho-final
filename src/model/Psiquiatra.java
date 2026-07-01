@@ -1,3 +1,5 @@
+package model;
+
 class Psiquiatra extends Funcionario{
 
   private String registroConselho;
