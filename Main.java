@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -29,7 +28,7 @@ public class Main{
         System.out.println("4. Editar avisos");
         System.out.println("5. Conferir sua ficha");
         System.out.println("6. Sair");
-        System.out.print("Escolha uma opção");
+        System.out.print("Escolha uma opção: ");
     }
 
     private static void escolherOpcao(int opcao){
@@ -64,24 +63,26 @@ public class Main{
     }
 
     public static void cadastrarUsuario(){
-        System.out.println("\n\nDados pessoais");
-        System.out.println("Insira o tipo de perfil");
+        System.out.println("\nInsira o tipo de perfil");
         System.out.println("1. Paciente");
         System.out.println("2. Psicólogo");
         System.out.println("3. Psiquiatra");
         int tipo = Integer.parseInt(sc.nextLine());
-
-        System.out.println("Insira seu nome");
+        
+        System.out.println("\nDados pessoais");
+        System.out.print("Insira seu nome: ");
         String nome = sc.nextLine();
         
-        System.out.println("Insira sua idade");
+        System.out.print("Insira sua idade: ");
         int idade = sc.nextInt();
+        sc.nextLine();
         
-        System.out.println("Insira seu cpf");
+        System.out.print("Insira seu cpf: ");
         String cpf = sc.nextLine();
         
-        System.out.println("Insira sua senha");
+        System.out.print("Insira sua senha: ");
         String senha = sc.nextLine();
+        System.out.println();
 
         try {
             switch (tipo) {
@@ -94,7 +95,7 @@ public class Main{
                         responsavel = sc.nextLine();
                     }   
                     
-                    System.out.print("\nInsira o telefone do responsável: ");
+                    System.out.print("Insira o telefone do responsável: ");
                     telefoneresp = sc.nextLine();
 
                     Pessoa paciente= new Paciente(nome, cpf, idade, senha, responsavel, telefoneresp);
@@ -102,10 +103,10 @@ public class Main{
                     break;
                 case 2:
                     {
-                        System.out.println("Insira sua matricula");
+                        System.out.print("Insira sua matricula");
                         String matricula = sc.nextLine();
 
-                        System.out.println("Insira sua especialidade");
+                        System.out.print("Insira sua especialidade");
                         String especialidade = sc.nextLine();
 
                         Funcionario psicologo = new Psicologo(nome, cpf, idade, senha, matricula, "Psicólogo", especialidade);
@@ -114,10 +115,10 @@ public class Main{
                     }
                 case 3:
                     {
-                        System.out.println("Insira sua matricula");
+                        System.out.print("Insira sua matricula");
                         String matricula = sc.nextLine();
 
-                        System.out.println("Insira seu CRM");
+                        System.out.print("Insira seu CRM");
                         String registroConselho = sc.nextLine();
 
                         Funcionario psiquiatra = new Psiquiatra(nome, cpf, idade, senha, matricula, "Psiquiatra", registroConselho);
@@ -129,7 +130,7 @@ public class Main{
                     break;
             }
 
-            System.out.println("Pronto, cadastro concluído");
+            System.out.println("Pronto, cadastro concluído!\n==============================\n");
 
         } catch (Exception e) {
             System.out.println("Erro ao cadastrar" + e.getMessage());
