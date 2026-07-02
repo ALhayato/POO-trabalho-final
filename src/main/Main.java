@@ -43,7 +43,7 @@ public class Main{
             menu();
             try{
                 opcao = Integer.parseInt(sc.nextLine());
-                escolherOpcao(opcao, a, m, f);
+                escolherOpcao(opcao, m, f);
                }catch(NumberFormatException e){
                     System.out.println("Erro: escolha uma opção valida");
                 }
@@ -64,7 +64,13 @@ public class Main{
         System.out.print("Escolha uma opção: ");
     }
 
-    private static void escolherOpcao(int opcao, Paciente p, Funcionario m, Funcionario f){
+    /**
+     * metodo que controla o fluxo de terminal
+     * @param opcao numero inteiro que representa o escolha do usuario
+     * @param m atua como psiquiatra
+     * @param f atua como clinico 
+     */
+    private static void escolherOpcao(int opcao, Funcionario m, Funcionario f){
            switch(opcao){
             case 1:
                 cadastrarUsuario();

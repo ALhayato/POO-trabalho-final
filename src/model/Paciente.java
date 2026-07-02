@@ -27,12 +27,18 @@ public class Paciente extends Pessoa{
     }
   }
   
+  
   public void adicionarEvolucao(String texto, Funcionario autor){
     if(texto != null && !texto.isEmpty()){
       this.historicoClinico.add(texto);
     }
   }
 
+  /**
+   * recupera o prontuario de um paciente
+   * @param f objeto que implenta clinico (psiquiatra ou psicologo)
+   * @return retorna o array de historico 
+   */
   public List<String> getHistoricoClinico(Clinico f){
       return this.historicoClinico;
   }

@@ -70,5 +70,8 @@ public abstract class Pessoa implements Autenticavel{
         return idade;
     }
     
+    /**
+     * exibe as informações sobre um determinado objeto
+     */
     public abstract void exibirDados();
 } 
