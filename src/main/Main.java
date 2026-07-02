@@ -140,10 +140,10 @@ public class Main{
                     break;
                 case 2:
                     {
-                        System.out.print("Insira sua matricula");
+                        System.out.print("Insira sua matricula: ");
                         String matricula = sc.nextLine();
 
-                        System.out.print("Insira sua especialidade");
+                        System.out.print("Insira sua especialidade: ");
                         String especialidade = sc.nextLine();
 
                         Funcionario psicologo = new Psicologo(nome, cpf, idade, senha, matricula, "Psicólogo", especialidade);
@@ -152,10 +152,10 @@ public class Main{
                     }
                 case 3:
                     {
-                        System.out.print("Insira sua matricula");
+                        System.out.print("Insira sua matricula: ");
                         String matricula = sc.nextLine();
 
-                        System.out.print("Insira seu CRM");
+                        System.out.print("Insira seu CRM: ");
                         String registroConselho = sc.nextLine();
 
                         Funcionario psiquiatra = new Psiquiatra(nome, cpf, idade, senha, matricula, "Psiquiatra", registroConselho);
@@ -189,9 +189,9 @@ public class Main{
     public static void criarAvisos(){
         System.out.print("Título do aviso: ");
         String titulo = sc.nextLine();
-        System.out.println("Conteúdo: ");
+        System.out.print("Conteúdo: ");
         String conteudo = sc.nextLine();
-        System.out.println("Data de expiração");
+        System.out.print("Data de expiração: ");
         String data = sc.nextLine();
 
         Aviso novo = new Aviso(conteudo, data, titulo);
