@@ -14,29 +14,36 @@ public class Main{
     static private final Scanner sc = new Scanner(System.in);
     static private final GerenciadorSistem sistema = new GerenciadorSistem();
     public static void main(String[] args) {
-        List<Paciente> pacientes = new ArrayList<>();
+    // List<Paciente> pacientes = new ArrayList<>();
         Paciente a = new Paciente("Carlos", "64578925421", 20, "1234cl", null, "999458237");
         Paciente b = new Paciente("Lucas", "07489653152", 25, "onmark58228", null, "999987654");
         Paciente c = new Paciente("Fernanda", "07845135457", 28, "nan74986", null, "999585795");
-        Clinico m = new Psiquiatra("Hugo", "05948725984", 40, "health63342", "459752", "Psiquiatra", "CRM-025487");
-        Clinico f = new Psicologo("Adriana", "45317859452", 38, "dri5874", "582461", "Psicologo", "geral");
+
+        Funcionario m = new Psiquiatra("Hugo", "05948725984", 40, "health63342", "459752", "Psiquiatra", "CRM-025487");
+        Funcionario f = new Psicologo("Adriana", "45317859452", 38, "dri5874", "582461", "Psicologo", "geral");
+        
+        sistema.cadastrarUsuario(a);
+        sistema.cadastrarUsuario(b);
+        sistema.cadastrarUsuario(c);
+        sistema.cadastrarUsuario(m);
+        sistema.cadastrarUsuario(f);
+
         try{
             Paciente d = new Paciente("Ana", "05473526812", 15, "574842", null, "999123456");
-            pacientes.add(d);
+            sistema.cadastrarUsuario(d);
         }catch(IllegalArgumentException e){
         System.out.println("Erro: " + e.getMessage());
         }
+
         Paciente r = new Paciente("Laura", "08794624534", 15, "7542lala", "Luane", "997568425");
-        pacientes.add(a);
-        pacientes.add(b);
-        pacientes.add(c);
-        pacientes.add(r);
+        sistema.cadastrarUsuario(r);
+
         int opcao = 0;
         do{
             menu();
             try{
                 opcao = Integer.parseInt(sc.nextLine());
-                escolherOpcao(opcao, pacientes, a, m, f);
+                escolherOpcao(opcao, a, m, f);
                }catch(NumberFormatException e){
                     System.out.println("Erro: escolha uma opção valida");
                 }
@@ -57,7 +64,7 @@ public class Main{
         System.out.print("Escolha uma opção: ");
     }
 
-    private static void escolherOpcao(int opcao,List<Paciente>pacientes , Paciente p, Clinico m, Clinico f){
+    private static void escolherOpcao(int opcao, Paciente p, Funcionario m, Funcionario f){
            switch(opcao){
             case 1:
                 cadastrarUsuario();
@@ -68,7 +75,7 @@ public class Main{
                 break;
 
             case 3:
-                verificarProntuario(pacientes, m);
+                verificarProntuario(m);
                 break;
 
             case 4:
@@ -76,7 +83,7 @@ public class Main{
                 break;
 
             case 5:
-                conferirSuaFicha(p, f);
+                conferirSuaFicha((Clinico) f);
                 break;
 
             case 6:
@@ -100,15 +107,14 @@ public class Main{
         String nome = sc.nextLine();
         
         System.out.print("Insira sua idade: ");
-        int idade = sc.nextInt();
-        sc.nextLine();
+        int idade = Integer.parseInt(sc.nextLine());
         
         System.out.print("Insira seu cpf: ");
         String cpf = sc.nextLine();
         
         System.out.print("Insira sua senha: ");
         String senha = sc.nextLine();
-        
+
         try {
             switch (tipo) {
                 case 1:
@@ -187,25 +193,78 @@ public class Main{
         sistema.adicionarAviso(novo);
     }
 
-    public static void verificarProntuario(List<Paciente> pacientes, Clinico m){
+    public static void verificarProntuario(Funcionario m){
+        List<Paciente> pacientes = new ArrayList<>();
+        for(Pessoa p : sistema.getUsuarios()){
+            if(p instanceof Paciente){
+                pacientes.add((Paciente) p);
+            }
+        }
+
+        if(pacientes.isEmpty()){
+            System.out.println("Nenhum paciente cadastrado!");
+            return;
+        }
+        
+        System.out.println("Escolha um paciente");
+
         for(int i = 0; i < pacientes.size(); i++){
             System.out.println("[" + i + "]" + pacientes.get(i).getNome());
         }
-            System.out.println("Escolher um paciente");
-            int i = sc.nextInt();
-            sc.nextLine();
+
+        System.out.print("Digite o número do paciente: ");
+        try{
+            int i = Integer.parseInt(sc.nextLine());
             
             if(i >= 0 && i < pacientes.size()){
                 Paciente e = pacientes.get(i);
                 System.out.println("Nome :" + e.getNome());
-                System.out.println("historico :" + e.getHistoricoClinico(m));
+                System.out.println("historico :" + e.getHistoricoClinico((Clinico) m));
+
+                System.out.println("Digite as anotações");
                 String novoLaudo = sc.nextLine();
-                m.evoluirProntuario(e, novoLaudo);
+                ((Clinico)m).evoluirProntuario(e, novoLaudo);
+                System.out.println("Prontuario atualizado");
             }
-            System.out.println("Prontuario atualizado");
+
+            else{
+                System.out.println("Número inválido");
+            }
+
+        } catch(NumberFormatException e) {
+            System.out.println("Digite um número inteiro válido");
+        }
     }
-    public static void conferirSuaFicha(Paciente p, Clinico f){
-            System.out.println(p.getHistoricoClinico(f));
+    public static void conferirSuaFicha(Clinico f){
+        List<Paciente> pacientes = new ArrayList<>();
+        for(Pessoa p : sistema.getUsuarios()){
+            if(p instanceof Paciente){
+                    pacientes.add((Paciente) p);
+            }
+        }        
+                
+        System.out.println("Escolha um paciente");
+
+        for(int i = 0; i < pacientes.size(); i++){
+            System.out.println("[" + i + "]" + pacientes.get(i).getNome());
+        }
+
+        try{
+            int i = Integer.parseInt(sc.nextLine());
+            
+            if(i >= 0 && i < pacientes.size()){
+                Paciente e = pacientes.get(i);
+
+                System.out.println("Histórico de: " + e.getNome());
+                System.out.println("historico :" + e.getHistoricoClinico(f));
+            }
+
+            else{
+                System.out.println("Número inválido");
+            }
+        } catch(NumberFormatException e){
+            System.out.println("Digite um número inteiro válido");
+        }
     }
 
     public static void sair(){
