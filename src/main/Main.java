@@ -1,11 +1,10 @@
 package main;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import model.*;
 import view.*;
-import interfacemdl.*;
 
 public class Main{
 
@@ -25,7 +24,7 @@ public class Main{
     }
         
     public static void menu(){
-        System.out.println("-----Bem vindo ao CapSistema-----");
+        System.out.println("-----Bem vindo ao CAPSistema-----");
         System.out.println("-----Escolha a opção desejada-----");
         System.out.println("1. Cadastrar usuário");
         System.out.println("2. Checar avisos");
@@ -55,7 +54,7 @@ public class Main{
                 break;
 
             case 5:
-                conferirSuaFicha();
+                conferirSuaFicha(p ,f);
                 break;
 
             case 6:
@@ -157,17 +156,17 @@ public class Main{
     public static void criarAvisos(){
         System.out.print("Título do aviso: ");
         String titulo = sc.nextLine();
-        System.out.println("Conteúdo: ");
+        System.out.print("Conteúdo: ");
         String conteudo = sc.nextLine();
-        System.out.println("Data de expiração");
+        System.out.print("Data de expiração: ");
         String data = sc.nextLine();
 
         Aviso novo = new Aviso(conteudo, data, titulo);
         sistema.adicionarAviso(novo);
-        System.out.println("Aviso criado com sucesso!");
+        System.out.println("\n=========================\nAviso criado com sucesso!\n=========================\n");
     }
 
-    public void verificarProntuario(){
+    public static void verificarProntuario(){
         List<Paciente> pacientes = new ArrayList<>();
         //adiciona os pacientes a lista pacientes
         for(Pessoa p : sistema.getUsuarios()){
