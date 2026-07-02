@@ -1,5 +1,6 @@
 package model;
 
+import interfacemdl.Clinico;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +14,11 @@ public class Paciente extends Pessoa{
     super(nome, cpf, idade, senha);
     this.historicoClinico = new ArrayList<>();
 
-    if(idade < 18 && responsavelLegal == null){
+    if(this.getIdade() < 18 && responsavelLegal == null){
       throw new IllegalArgumentException("menores de 18 anos devem ter um responsavel legal e o telefone do responsavel.");
     }
 
-    if(idade < 18){
+    if(this.getIdade() < 18){
       this.responsavelLegal = responsavelLegal;
       this.telefoneResponsavel = telefoneResponsavel;
     } else {
@@ -32,13 +33,11 @@ public class Paciente extends Pessoa{
     }
   }
 
-  public List<String> getHistoricoClinico(Funcionario f){
-    if(f instanceof Psicologo || f instanceof Psiquiatra){
+  public List<String> getHistoricoClinico(Clinico f){
       return this.historicoClinico;
-    }
-    System.out.println("Acesso negado");
-    return null;
   }
+    
+  
 
   @Override
   public void exibirDados(){
