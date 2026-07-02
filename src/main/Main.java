@@ -1,11 +1,11 @@
 package main;
 
-import java.util.List;
+import interfacemdl.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import model.*;
 import view.*;
-import interfacemdl.*;
 
 
 
@@ -46,8 +46,8 @@ public class Main{
 
 
     public static void menu(){
-        System.out.println("-----Bem vindo ao CapSistema-----");
-        System.out.println("-----Escolha a opção desejada-----");
+        System.out.println("\n------------------------\nBem vindo ao CAPSistema!\n------------------------\n");
+        System.out.println("Escolha a opção desejada:");
         System.out.println("1. Cadastrar usuário");
         System.out.println("2. Checar avisos");
         System.out.println("3. Verificar prontuario");
@@ -108,8 +108,7 @@ public class Main{
         
         System.out.print("Insira sua senha: ");
         String senha = sc.nextLine();
-        System.out.println();
-
+        
         try {
             switch (tipo) {
                 case 1:

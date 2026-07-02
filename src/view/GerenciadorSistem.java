@@ -15,12 +15,12 @@ public class GerenciadorSistem{
 
     for(Pessoa u : usuarios){
       if(u.getCpf().equals(p.getCpf())){ //verifica se o cpf já existe
-        throw new IllegalArgumentException("Já existe um usuário cadastrado com esse CPF");
+        throw new IllegalArgumentException(" Já existe um usuário cadastrado com esse CPF");
       }
     }
 
     usuarios.add(p);
-    System.out.println("Usuário cadastrado com sucesso");
+    System.out.println("==============================\nUsuário cadastrado com sucesso");
   }
 
   public Pessoa fazerLogin(String cpf, String senha){
