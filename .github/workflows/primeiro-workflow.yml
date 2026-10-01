@@ -18,7 +18,7 @@ jobs:
     - name: Listar arquivos na raiz (pós-checkout)
       run: ls -la
     - name: Listar arquivos da pasta target
-      run: ls -la target/
+      run: ls -la src/main/
     - name: Configurar JDK 17
       uses: actions/setup-java@v4
       with:
