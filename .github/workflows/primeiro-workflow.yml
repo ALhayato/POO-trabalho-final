@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout do código
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
 
     - name: Mensagem de Início
       run: echo "🚀 Iniciando o processo de build do projeto Java..."
