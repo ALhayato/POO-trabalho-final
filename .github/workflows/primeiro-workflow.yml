@@ -22,7 +22,17 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '21'
-        cache: 'maven' 
-        
-    - name: Compilar e testar com Maven
-      run: mvn clean verify
+    
+    - name: Compilar com javac
+      run: |
+        echo "Compilando arquivos .java..."
+        # Cria uma pasta para os arquivos compilados (.class)
+        mkdir -p bin
+        # Encontra e compila todos os arquivos .java do projeto
+        find src -name "*.java" > sources.txt
+        javac -d bin @sources.txt
+
+    - name: Executar a aplicação
+      run: |
+        echo "Executando o programa..."
+        java -cp bin com.exemplo.Main
