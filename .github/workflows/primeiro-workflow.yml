@@ -18,7 +18,7 @@ jobs:
     - name: Listar arquivos na raiz (pós-checkout)
       run: ls -la
     - name: Configurar JDK 21
-      uses: actions/setup-java@v4
+      uses: actions/setup-java@v5
       with:
         distribution: 'temurin'
         java-version: '21'
