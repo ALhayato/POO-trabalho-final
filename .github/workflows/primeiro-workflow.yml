@@ -27,9 +27,9 @@ jobs:
       run: |
         mkdir -p bin
         # Compila o arquivo Main.java dentro da pasta src/main/
-        javac -d bin src/main/Main.java
+        javac -d bin src/model/Paciente.java
 
     - name: Executar a aplicação
       run: |
-        # Como o pacote é 'main', chamamos 'main.Main' (pacote.Classe)
-        java -cp bin main.Main
+        # Como o pacote é 'model', chamamos 'model.Paciente' (pacote.Classe)
+        java -cp bin model.Paciente
